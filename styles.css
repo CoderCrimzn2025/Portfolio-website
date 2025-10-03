@@ -1,0 +1,141 @@
+:root{
+  --bg: #850000; /* deep dark red */
+  --accent: #e7a49a; /* pinkish */
+  --gold: #d4a14b; /* gold-ish */
+  --muted: rgba(255,255,255,0.95);
+  --card-bg: rgba(255,255,255,0.03);
+  --container-width: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{max-width:var(--container-width);margin:0 auto;padding:2rem}
+
+/* Hero / top content area */
+.hero{
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28)), var(--bg);
+  padding:4rem 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40vh; /* keeps hero at top and visible */
+}
+.hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem}
+
+/* text wrapper inside hero */
+.hero-text{max-width:820px}
+
+/* Avatar styling (adjust to your preferred shape) */
+.avatar{
+  width:clamp(120px, 28vw, 240px);
+  height:auto;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+  display:block;
+}
+
+.avatar.placeholder{background:linear-gradient(135deg, rgba(231,164,154,0.06), rgba(212,161,75,0.03));}
+
+.hero h1{
+  margin:0 0 0.5rem 0;
+  font-size:clamp(1.8rem, 4vw, 3.2rem);
+  color:var(--accent);
+  letter-spacing:0.5px;
+}
+.lead{color:var(--gold);font-size:1.05rem;margin:0 0 1rem}
+
+.hero-nav{display:flex;gap:1rem;justify-content:center}
+.hero-nav a{
+  color:var(--accent);
+  text-decoration:none;
+  padding:0.45rem 0.9rem;
+  border-radius:8px;
+  transition:background .18s ease, transform .12s ease;
+}
+.hero-nav a:hover{background:var(--card-bg);transform:translateY(-2px)}
+
+.section{padding:3.25rem 1rem}
+.section h2{color:var(--accent);margin-top:0}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.project-card{background:var(--card-bg);padding:1rem;border-radius:8px}
+.project-card h3{margin:0 0 0.5rem;color:var(--gold)}
+
+/* Portfolio grid: center items and constrain media sizes so they don't overflow */
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  margin-top:1rem;
+  /* center items inside their cells */
+  justify-items:center;
+}
+.portfolio-item{
+  background:var(--card-bg);
+  padding:0.75rem;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  max-width:420px; /* keep each card a reasonable width */
+}
+.portfolio-item, .skill-box, .best-work{position:relative}
+.portfolio-item::before, .skill-box::before, .best-work::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:3px; /* space between gradient border and inner content */
+  border-radius:10px;
+  background: linear-gradient(90deg,#ffd200 0%, #ff3b3b 50%, #ffd200 100%);
+  background-size:200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: hueShift 6s linear infinite;
+  z-index:0;
+}
+.portfolio-item > *, .skill-box > *, .best-work > .project-card {position:relative;z-index:1}
+.portfolio-media{
+  width:100%;
+  height:auto;
+  max-height:360px;
+  object-fit:contain; /* ensure images/videos are not cropped and stay centered */
+  border-radius:6px;
+  display:block;
+  margin:0 auto;
+  background:#000; /* safe fallback for videos with letterboxing */
+}
+.portfolio-item.video .portfolio-media{
+  max-height:420px;
+}
+.portfolio-item .caption{font-size:0.9rem;color:rgba(255,255,255,0.75);margin-top:0.5rem;text-align:center}
+
+.site-footer{padding:2rem 1rem;border-top:5px solid rgba(255,255,255,0.04);text-align:center;color:rgba(255,255,255,0.6)}
+
+/* responsive tweaks */
+@media(min-width:900px){
+  .hero{min-height:50vh}
+  .hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:900px;gap:1.25rem}
+  .avatar{width:320px}
+}
+
+/* accessible focus styles */
+a:focus{outline:3px solid rgba(212,161,75,0.25);outline-offset:3px}
+
+@keyframes hueShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}

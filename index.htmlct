@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+  <!-- Placeholder avatar added so the hero shows immediately. Replace with assets/profile.jpg later if desired. -->
+  <img src="assets/profile.svg" alt="Profile avatar" class="avatar">
+
+      <div class="hero-text">
+        <h1>Hi, I'm Carrington Tolliver</h1>
+        <p class="lead">A passionate developer building beautiful and accessible web experiences.</p>
+        <nav class="hero-nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p>Who I am: I am a very artistic individual who's creativity has no bounds, 
+            I am a skilled photo, video, and Visual Effects creator and editor</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Project One</h3>
+            <p>Brief description of project one.</p>
+          </article>
+          <article class="project-card">
+            <h3>Project Two</h3>
+            <p>Brief description of project two.</p>
+          </article>
+          <article class="project-card">
+            <h3>Project Three</h3>
+            <p>Brief description of project three.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>You can reach me at <a href="mailto:you@example.com">you@example.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 CoderCrimzn2025</div>
+  </footer>
+</body>
+</html>
